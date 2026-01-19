@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/Mushrooms/tree_tile.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Mushrooms/Mush.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -6.51624 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "bounce"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -6.51624 ), Vector2( 0, -3.5 ), Vector2( 0, -6.516 ) ]
+}
+
+[node name="Mush" type="Node2D"]
+z_index = -1
+script = ExtResource( 2 )
+
+[node name="Base" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 90, 63, 58, 14 )
+
+[node name="Base2" type="Sprite" parent="."]
+position = Vector2( -8.24937, 1.48797 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 108, 69, 11, 6 )
+
+[node name="Base3" type="Sprite" parent="."]
+position = Vector2( -13.7233, 1.48798 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 108, 69, 11, 6 )
+
+[node name="Head" type="Sprite" parent="."]
+position = Vector2( 0, -6.51624 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 90, 51, 58, 12 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -10.0021, -3.55672, 12.0231, -3.55672, 11.9487, -4.00318, -10.0021, -4.00318 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/bounce = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -9.96191, -3.69473, -9.49065, -6.02622, -3.24026, -8.95299, 5.34162, -8.90339, 9.83099, -6.12544, 11.7904, -3.62032 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
