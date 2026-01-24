@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/PlainsHouses/plains_village_houses1.png" type="Texture" id=1]
+
+[node name="House3" type="Node2D"]
+z_index = -1
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 18.3116, 31.1676, 18.2819, -26.6521, 16.1595, -30.9286, -14.7259, -30.8233, -17.1014, -28.7228, -17.0491, 31.2093 )

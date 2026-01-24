@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Macaco3 (online-audio-converter.com).wav-a7b8a4f9a0b33bb61c0971212da29afa.sample"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/MoggySoundEffects/Macaco3 (online-audio-converter.com).wav"
+dest_files=[ "res://.import/Macaco3 (online-audio-converter.com).wav-a7b8a4f9a0b33bb61c0971212da29afa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

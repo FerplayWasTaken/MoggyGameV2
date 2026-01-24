@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/Train/grilo_lanches.png" type="Texture" id=1]
+
+[node name="Train" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -22, -2 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( -6, -12, 168, 110 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 16, 0 )
+scale = Vector2( 1.7, 1.7 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -45.4609, 13.8848, -1.17647, 14.1176, -1.17647, -12.9412, -15.2941, -12.9412, -15.2941, -2.94118, -32.042, -3, -32, -10, -37, -10, -36.6485, -3, -38, -3, -41, 10 )

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/BathroomMoveis/books.png" type="Texture" id=1]
+
+[node name="Book4" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 2
+vframes = 2
+frame = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
+polygon = PoolVector2Array( 47, 22, 47, -20, -44, -20, -44, 22 )

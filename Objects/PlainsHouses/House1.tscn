@@ -3,7 +3,6 @@
 [ext_resource path="res://Objects/PlainsHouses/plains_village_houses1.png" type="Texture" id=1]
 
 [node name="House1" type="Node2D"]
-position = Vector2( 24.6572, -834.538 )
 z_index = -1
 
 [node name="Sprite" type="Sprite" parent="."]

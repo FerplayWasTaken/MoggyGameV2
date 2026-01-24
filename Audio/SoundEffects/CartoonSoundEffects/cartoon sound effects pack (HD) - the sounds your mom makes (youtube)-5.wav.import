@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cartoon sound effects pack (HD) - the sounds your mom makes (youtube)-5.wav-3cd1e09edea2763900343b2df402f335.sample"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/CartoonSoundEffects/cartoon sound effects pack (HD) - the sounds your mom makes (youtube)-5.wav"
+dest_files=[ "res://.import/cartoon sound effects pack (HD) - the sounds your mom makes (youtube)-5.wav-3cd1e09edea2763900343b2df402f335.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

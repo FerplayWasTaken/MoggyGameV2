@@ -13,9 +13,16 @@ var position_end = Vector2.ZERO
 
 var vector = Vector2.ZERO
 
+onready var moggy = get_tree().get_current_scene().get_node("Moggy")
+
+var can_touch_screen = false
+
 func _ready():
 	connect("input_event", self, "_on_input_event")
 
+func _process(_delta):
+	pass
+#	global_position = moggy.global_position
 
 #apenas para visualizar o vetor
 func _draw():
@@ -32,29 +39,32 @@ func _reset():
 	update()
 
 func _input(event):
-	if not touch_down:
-		return
-		
-	if event.is_action_released("ui_touch"):
-		touch_down = false
-		emit_signal("vector_created", vector)	
-		_reset()
-		
-		
-	if event is InputEventMouseMotion:
-		position_end = event.position
-		
-		vector = -(position_end - position_start).clamped(max_length)	
+	if can_touch_screen:
 	
-		emit_signal("is_holding_vector")
-	
-		update()
+		if not touch_down:
+			return
+			
+		if event.is_action_released("ui_touch"):
+			touch_down = false
+			emit_signal("vector_created", vector)	
+			_reset()
+			
+			
+		if event is InputEventMouseMotion:
+			position_end = event.position
+			
+			vector = -(position_end - position_start).clamped(max_length)	
+		
+			update()
 	
 func _on_input_event(_viewport, event, _shape_idx):
+	if can_touch_screen:
 	
-	if Input.is_action_pressed("ui_touch"):
-		touch_down = true
-		
-		position_start = event.position
+		if Input.is_action_pressed("ui_touch"):
+			touch_down = true
+			
+			position_start = event.position
+			
+			emit_signal("is_holding_vector")
 		
 		
