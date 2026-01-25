@@ -17,6 +17,9 @@ func play_sound(audio_name):
 	if sound_effects_stream_list.has(audio_name):
 		var audio = AudioStreamPlayer.new()
 		add_child(audio)
+		
+#		audio.volume_db = -80 #mutar a porra desse jogo
+		
 		audio.stream = load(sound_effects_stream_list[audio_name])
 		audio.play()
 		
@@ -32,6 +35,7 @@ func play_random_sound_effect_audio_random_pitch(audio_name, volume_db):
 	add_child(audio)
 	audio.stream = load(sound_effects_stream_list[audio_name][rng.randf_range(0, (sound_effects_stream_list[audio_name]).size())])
 	audio.volume_db = volume_db
+#	audio.volume_db = -80 #mutar a porra desse jogo
 	
 	var random_pitch = rng.randf_range(.8, 1.2)
 	

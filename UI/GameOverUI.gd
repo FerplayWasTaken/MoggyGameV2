@@ -18,5 +18,4 @@ func _on_Button_pressed():
 
 func _on_Button2_pressed():
 	if is_in_game_over_menu:
-		pass
-#		get_tree().quit()
+		$AnimationPlayer.play("SWITCH_SHOP")

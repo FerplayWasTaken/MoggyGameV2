@@ -552,6 +552,90 @@ tile_data = PoolIntArray( -24968975, 0, 0, -24968974, 0, 0, -24968973, 0, 0, -24
 [node name="BananPoints" parent="BananaPoints" instance=ExtResource( 16 )]
 position = Vector2( -37, -6 )
 
+[node name="BananPoints21" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 54.7766, -119.2 )
+
+[node name="BananPoints22" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 35, -119.2 )
+
+[node name="BananPoints23" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 48.0572, -221.866 )
+
+[node name="BananPoints24" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 134, -148.106 )
+
+[node name="BananPoints25" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 130, -313.408 )
+
+[node name="BananPoints26" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 112.721, -414.584 )
+
+[node name="BananPoints27" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 326.9, -593.353 )
+
+[node name="BananPoints28" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 299.932, -644.244 )
+
+[node name="BananPoints29" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( -99.7614, -854.869 )
+
+[node name="BananPoints30" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 190.374, -1018.19 )
+
+[node name="BananPoints31" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 93.2087, -1194.07 )
+
+[node name="BananPoints32" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 213.126, -1114.3 )
+
+[node name="BananPoints33" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 278.241, -1207.27 )
+
+[node name="BananPoints34" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 335.302, -1185.27 )
+
+[node name="BananPoints35" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 622.533, -1418.8 )
+
+[node name="BananPoints36" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 436.905, -1372.03 )
+
+[node name="BananPoints37" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 469.045, -1495.13 )
+
+[node name="BananPoints38" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 166.274, -1487.31 )
+
+[node name="BananPoints39" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 106.009, -1548.4 )
+
+[node name="BananPoints40" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( -371.149, -1651.13 )
+
+[node name="BananPoints41" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( -35.0235, -1760.52 )
+
+[node name="BananPoints42" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 341.785, -1864.54 )
+
+[node name="BananPoints43" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 570.75, -1918.56 )
+
+[node name="BananPoints44" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 976.58, -1888.48 )
+
+[node name="BananPoints45" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 1033.27, -1827.31 )
+
+[node name="BananPoints46" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 1143.58, -1855.06 )
+
+[node name="BananPoints47" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 1340.19, -1802.03 )
+
+[node name="BananPoints48" parent="BananaPoints" instance=ExtResource( 16 )]
+position = Vector2( 1507.79, -2073.02 )
+
 [node name="BananPoints2" parent="BananaPoints" instance=ExtResource( 16 )]
 position = Vector2( 155, -60 )
 
@@ -632,7 +716,7 @@ polygon = PoolVector2Array( -1.64825, -15.0287, 3.62888, -15.1031, 7.64243, -10.
 
 [node name="Sprite2" type="Sprite" parent="LevelPlatforms/Nest/Eggs"]
 position = Vector2( 403.38, -550.858 )
-rotation = -1.37641
+rotation = -1.57079
 scale = Vector2( 0.5, 0.5 )
 z_index = -1
 texture = ExtResource( 19 )
@@ -646,8 +730,8 @@ collision_mask = 0
 polygon = PoolVector2Array( -1.64825, -15.0287, 3.62888, -15.1031, 7.64243, -10.4206, 10.2438, -7.00159, 11.8047, -3.8056, 12.1763, -1.57587, 12.1763, 5.33643, 10.2438, 9.12701, 7.56812, 12.546, 5.7843, 13.7352, -3.65503, 13.7352, -5.6618, 12.6203, -8.78348, 8.97833, -10.1957, 5.78235, -10.1213, -1.12988, -9.22943, -3.73126, -8.04022, -6.70428, -5.14154, -11.0895 )
 
 [node name="Sprite3" type="Sprite" parent="LevelPlatforms/Nest/Eggs"]
-position = Vector2( 325.118, -578.961 )
-rotation = 1.6879
+position = Vector2( 325.541, -578.501 )
+rotation = 1.0472
 scale = Vector2( 0.5, 0.5 )
 z_index = -1
 texture = ExtResource( 19 )
@@ -661,8 +745,8 @@ collision_mask = 0
 polygon = PoolVector2Array( -1.64825, -15.0287, 3.62888, -15.1031, 7.64243, -10.4206, 10.2438, -7.00159, 11.8047, -3.8056, 12.1763, -1.57587, 12.1763, 5.33643, 10.2438, 9.12701, 7.56812, 12.546, 5.7843, 13.7352, -3.65503, 13.7352, -5.6618, 12.6203, -8.78348, 8.97833, -10.1957, 5.78235, -10.1213, -1.12988, -9.22943, -3.73126, -8.04022, -6.70428, -5.14154, -11.0895 )
 
 [node name="Sprite4" type="Sprite" parent="LevelPlatforms/Nest/Eggs"]
-position = Vector2( 404.306, -615.042 )
-rotation = 4.29207
+position = Vector2( 402.291, -610.333 )
+rotation = 4.71238
 scale = Vector2( 0.5, 0.5 )
 z_index = -1
 texture = ExtResource( 19 )
@@ -1410,7 +1494,7 @@ rect_scale = Vector2( 0.2, 0.2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_fonts/font = SubResource( 12 )
-text = "Macacos não sabe nadar! Não caia na água!!!"
+text = "Macacos não sabem nadar! Não caia na água!!!"
 align = 1
 autowrap = true
 

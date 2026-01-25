@@ -18,6 +18,7 @@ config/icon="res://Player/Moggy/moggy_icon.png"
 
 GlobalValues="*res://GlobalScripts/GlobalValues.gd"
 GlobalSoundEffectGenerator="*res://GlobalScripts/GlobalSoundEffectGenerator.gd"
+GlobalShopInventory="*res://GlobalScripts/GlobalShopInventory.gd"
 
 [display]
 
