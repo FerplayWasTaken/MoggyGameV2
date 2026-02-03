@@ -1418,7 +1418,7 @@ texture = ExtResource( 59 )
 position = Vector2( 520.037, -2281.52 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 31 )
-frame = 10
+frame = 8
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="LevelPlatforms/Bathroom/Couch"]

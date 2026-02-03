@@ -31,9 +31,9 @@ texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="JumpArrow"]
 modulate = Color( 1, 1, 1, 0.392157 )
-position = Vector2( 7.39098e-06, 0.0425644 )
+position = Vector2( -8.90086e-06, -0.0424952 )
 rotation = 4.71238
 texture = ExtResource( 3 )
-offset = Vector2( 1.04254, -10 )
+offset = Vector2( -4.39584e-07, -5 )
 region_enabled = true
-region_rect = Rect2( -2, 2, 22, 20 )
+region_rect = Rect2( -2, 2, 20, 10 )

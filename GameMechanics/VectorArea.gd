@@ -27,8 +27,8 @@ func _process(_delta):
 #apenas para visualizar o vetor
 func _draw():
 	draw_line(position_start - global_position, (position_end - global_position), Color(1,1,1,0.3), 4)		
-
-#	draw_line(position_start - global_position, position_start - global_position + vector, Color.red, 8)			
+#	draw_line(position_end - global_position, (position_start - global_position), Color(1,1,1,0.3), 4)		
+	draw_line(position_start - global_position, position_start - global_position + vector, Color(1,1,1,0.3), 4)			
 
 
 func _reset():
@@ -69,13 +69,11 @@ func _on_input_event(_viewport, event, _shape_idx):
 			
 			emit_signal("is_holding_vector")
 			
-			
-		
 		else:
 			$JumpArrow.visible = false	
 		
 func manage_jump_arrow_direction():
 	$JumpArrow.look_at(get_global_mouse_position())
 
-	$JumpArrow.global_position = position_start
+	$JumpArrow.position = position_start - global_position + vector
 #	$JumpArrow.scale.x = 0.05 * abs((position_start - position_end).x)
