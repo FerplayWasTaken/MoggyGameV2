@@ -1,9 +1,10 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Player/Moggy/Assets/Moggy_sprites_29624.png" type="Texture" id=1]
+[ext_resource path="res://Player/Moggy/Assets/Animations/MoggyDefault.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://UI/setinha.png" type="Texture" id=2]
 [ext_resource path="res://UI/ShopMenu.gd" type="Script" id=3]
 [ext_resource path="res://Objects/banana.png" type="Texture" id=4]
+[ext_resource path="res://Audio/SoundEffects/GlobalSoundEffectGenerator.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Fonts/Born2bSportyV2.ttf"
@@ -17,29 +18,115 @@ font_data = SubResource( 1 )
 [sub_resource type="Theme" id=11]
 VScrollBar/styles/scroll = SubResource( 10 )
 
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 48, 48 )
+[sub_resource type="RectangleShape2D" id=12]
 
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 1 )
-region = Rect2( 48, 0, 48, 48 )
+[sub_resource type="Animation" id=13]
+resource_name = "CLICKED"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Buy:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.992157, 1, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 30, 80 ) ]
+}
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 1 )
-region = Rect2( 96, 0, 48, 48 )
+[sub_resource type="Animation" id=15]
+resource_name = "DENIED"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30, 80 ), Vector2( 31, 80 ), Vector2( 30, 80 ), Vector2( 29, 80 ), Vector2( 30, 80 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Buy:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 1 )
-region = Rect2( 144, 0, 48, 48 )
-
-[sub_resource type="SpriteFrames" id=7]
-animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
+[sub_resource type="Animation" id=14]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Buy:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 30, 80 ) ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "RESET"
@@ -64,21 +151,21 @@ script = ExtResource( 3 )
 
 [node name="Background" type="Node2D" parent="."]
 
-[node name="PowerUpShop" type="Node2D" parent="."]
+[node name="ItemShop" type="Node2D" parent="."]
 position = Vector2( 8.909, 0 )
 
-[node name="Background" type="Node2D" parent="PowerUpShop"]
+[node name="Background" type="Node2D" parent="ItemShop"]
 
-[node name="ColorRect" type="ColorRect" parent="PowerUpShop/Background"]
+[node name="ColorRect" type="ColorRect" parent="ItemShop/Background"]
 margin_left = 2.0
 margin_top = 16.0
 margin_right = 43.0
 margin_bottom = 90.0
 color = Color( 0, 0, 0, 0.588235 )
 
-[node name="Title" type="Node2D" parent="PowerUpShop"]
+[node name="Title" type="Node2D" parent="ItemShop"]
 
-[node name="Label" type="Label" parent="PowerUpShop/Title"]
+[node name="Label" type="Label" parent="ItemShop/Title"]
 margin_left = 3.091
 margin_top = 9.0
 margin_right = 129.091
@@ -86,66 +173,122 @@ margin_bottom = 41.0
 rect_scale = Vector2( 0.25, 0.25 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "Power Ups"
+text = "Items"
 
-[node name="Options" type="Node2D" parent="PowerUpShop"]
+[node name="Options" type="Node2D" parent="ItemShop"]
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PowerUpShop/Options"]
-margin_left = 5.0
-margin_top = 21.0
-margin_right = 41.0
-margin_bottom = 87.0
-theme = SubResource( 11 )
-
-[node name="PowerUps" type="VBoxContainer" parent="PowerUpShop/Options/ScrollContainer"]
-margin_right = 36.0
-margin_bottom = 66.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 10
-
-[node name="CosmeticsShop" type="Node2D" parent="."]
-position = Vector2( 8.909, 0 )
-
-[node name="Background" type="Node2D" parent="CosmeticsShop"]
-position = Vector2( 53, 0 )
-
-[node name="ColorRect" type="ColorRect" parent="CosmeticsShop/Background"]
-margin_left = 2.0
-margin_top = 16.0
-margin_right = 43.0
-margin_bottom = 90.0
-color = Color( 0, 0, 0, 0.588235 )
-
-[node name="Title" type="Node2D" parent="CosmeticsShop"]
-position = Vector2( 53, 0 )
-
-[node name="Label" type="Label" parent="CosmeticsShop/Title"]
-margin_left = 3.091
-margin_top = 9.0
-margin_right = 129.091
-margin_bottom = 41.0
-rect_scale = Vector2( 0.25, 0.25 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "Cosmetics"
-
-[node name="Options" type="Node2D" parent="CosmeticsShop"]
-position = Vector2( 53, 0 )
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CosmeticsShop/Options"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ItemShop/Options"]
 margin_left = 3.0
 margin_top = 21.0
 margin_right = 42.0
 margin_bottom = 87.0
 theme = SubResource( 11 )
 
-[node name="PowerUps" type="VBoxContainer" parent="CosmeticsShop/Options/ScrollContainer"]
+[node name="Items" type="VBoxContainer" parent="ItemShop/Options/ScrollContainer"]
 margin_right = 39.0
 margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
+
+[node name="Description" type="Node2D" parent="."]
+position = Vector2( 8.909, 0 )
+
+[node name="Background" type="Node2D" parent="Description"]
+position = Vector2( 53, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="Description/Background"]
+margin_left = 2.0
+margin_top = 16.0
+margin_right = 43.0
+margin_bottom = 90.0
+color = Color( 0, 0, 0, 0.588235 )
+
+[node name="Title" type="Node2D" parent="Description"]
+position = Vector2( 53, 0 )
+
+[node name="Label" type="Label" parent="Description/Title"]
+margin_left = 3.091
+margin_top = 9.0
+margin_right = 129.091
+margin_bottom = 41.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Description"
+
+[node name="Options" type="Node2D" parent="Description"]
+position = Vector2( 53, 0 )
+
+[node name="Text" type="Label" parent="Description/Options"]
+margin_left = 4.0
+margin_top = 19.0
+margin_right = 245.0
+margin_bottom = 379.0
+rect_scale = Vector2( 0.15, 0.15 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Description"
+autowrap = true
+
+[node name="ConfirmBox" type="Node2D" parent="Description"]
+position = Vector2( 44.091, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="Description/ConfirmBox"]
+margin_left = 12.0
+margin_top = 67.0
+margin_right = 51.0
+margin_bottom = 86.0
+color = Color( 0, 0, 0, 0.52549 )
+
+[node name="Text" type="Label" parent="Description/ConfirmBox"]
+margin_left = 13.0
+margin_top = 68.0
+margin_right = 139.0
+margin_bottom = 100.0
+rect_scale = Vector2( 0.15, 0.15 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Cost: "
+
+[node name="BananaAmount" type="Label" parent="Description/ConfirmBox"]
+margin_left = 24.0
+margin_top = 68.0
+margin_right = 236.0
+margin_bottom = 100.0
+rect_scale = Vector2( 0.15, 0.15 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "20"
+
+[node name="Sprite" type="Sprite" parent="Description/ConfirmBox/BananaAmount"]
+position = Vector2( 58.9583, 13.75 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 4 )
+
+[node name="Options" type="Node2D" parent="Description/ConfirmBox"]
+position = Vector2( 30, 80 )
+
+[node name="Buy" type="Label" parent="Description/ConfirmBox/Options"]
+margin_left = -32.5305
+margin_top = -16.102
+margin_right = 17.4695
+margin_bottom = 15.898
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 22.2917, 16.25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Buy"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Description/ConfirmBox/Options/Buy"]
+scale = Vector2( 2.5, 1.5 )
+shape = SubResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Description/ConfirmBox/Options"]
+anims/CLICKED = SubResource( 13 )
+anims/DENIED = SubResource( 15 )
+anims/RESET = SubResource( 14 )
 
 [node name="Inventory" type="Node2D" parent="."]
 
@@ -154,7 +297,8 @@ position = Vector2( 106, 0 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Inventory/Moggy"]
 position = Vector2( 27, 40 )
-frames = SubResource( 7 )
+frames = ExtResource( 1 )
+animation = "idle"
 playing = true
 flip_h = true
 
@@ -171,6 +315,53 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Inventory"
 
+[node name="CurrentBananaAmount" type="Node2D" parent="Inventory"]
+
+[node name="Label" type="Label" parent="Inventory/CurrentBananaAmount"]
+margin_left = 143.0
+margin_top = 19.0
+margin_right = 199.0
+margin_bottom = 51.0
+rect_scale = Vector2( 0.15, 0.15 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "x000"
+
+[node name="Sprite2" type="Sprite" parent="Inventory/CurrentBananaAmount"]
+position = Vector2( 155, 21 )
+rotation = 0.261799
+scale = Vector2( 0.36512, 0.36512 )
+texture = ExtResource( 4 )
+
+[node name="CurrentPowerUp" type="Node2D" parent="Inventory"]
+visible = false
+position = Vector2( -30.0735, -13.0553 )
+scale = Vector2( 1.25, 1.25 )
+
+[node name="Label2" type="Label" parent="Inventory/CurrentPowerUp"]
+margin_left = 110.199
+margin_top = 58.3865
+margin_right = 330.199
+margin_bottom = 107.386
+rect_scale = Vector2( 0.15, 0.15 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Power Ups:"
+
+[node name="PowerUpList" type="Node2D" parent="Inventory/CurrentPowerUp"]
+
+[node name="Sprite" type="Sprite" parent="Inventory/CurrentPowerUp/PowerUpList"]
+position = Vector2( 133.366, 60.3144 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="Sprite2" type="Sprite" parent="Inventory/CurrentPowerUp/PowerUpList"]
+position = Vector2( 138.366, 60.3144 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="Sprite3" type="Sprite" parent="Inventory/CurrentPowerUp/PowerUpList"]
+position = Vector2( 143.366, 60.3144 )
+scale = Vector2( 0.15, 0.15 )
+
 [node name="Ad" type="Node2D" parent="."]
 position = Vector2( 126.502, 83.5653 )
 
@@ -182,7 +373,7 @@ margin_bottom = 29.0077
 rect_scale = Vector2( 0.20864, 0.20864 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "Watch Ad for 30"
+text = "Watch Ad for 10"
 
 [node name="Sprite" type="Sprite" parent="Ad/WatchAd"]
 position = Vector2( 215.954, 11.9782 )
@@ -206,4 +397,7 @@ position = Vector2( -14, -12 )
 scale = Vector2( 1.5, 1 )
 shape = SubResource( 8 )
 
+[node name="GlobalSoundEffectGenerator" parent="." instance=ExtResource( 5 )]
+
+[connection signal="pressed" from="Description/ConfirmBox/Options/Buy/TouchScreenButton" to="." method="_on_cosmetic_TouchScreenButton_pressed"]
 [connection signal="pressed" from="Back/Sprite/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]

@@ -21,14 +21,14 @@ func _ready():
 	connect("input_event", self, "_on_input_event")
 
 func _process(_delta):
-	pass
+	manage_jump_arrow_direction()
 #	global_position = moggy.global_position
 
 #apenas para visualizar o vetor
 func _draw():
-	draw_line(position_start - global_position, (position_end - global_position), Color.blue, 8)		
-		
-	draw_line(position_start - global_position, position_start - global_position + vector, Color.red, 8)			
+	draw_line(position_start - global_position, (position_end - global_position), Color(1,1,1,0.3), 4)		
+
+#	draw_line(position_start - global_position, position_start - global_position + vector, Color.red, 8)			
 
 
 func _reset():
@@ -56,6 +56,8 @@ func _input(event):
 			vector = -(position_end - position_start).clamped(max_length)	
 		
 			update()
+			
+			$JumpArrow.visible = true
 	
 func _on_input_event(_viewport, event, _shape_idx):
 	if can_touch_screen:
@@ -66,5 +68,14 @@ func _on_input_event(_viewport, event, _shape_idx):
 			position_start = event.position
 			
 			emit_signal("is_holding_vector")
+			
+			
 		
+		else:
+			$JumpArrow.visible = false	
 		
+func manage_jump_arrow_direction():
+	$JumpArrow.look_at(get_global_mouse_position())
+
+	$JumpArrow.global_position = position_start
+#	$JumpArrow.scale.x = 0.05 * abs((position_start - position_end).x)

@@ -8,14 +8,20 @@ func _ready():
 		$GameStartUI.start_game()
 		
 		GlobalValues.game_has_started = true
+		$GameUI.can_pause_game = false
+	
 	
 	else:
 		$AnimationPlayer.play("start_game")
 		$AnimationPlayer.seek(1)
 		
+		$GameStartUI.retry_game()
+		
 		$VectorAreaView/VectorArea.can_touch_screen = true
 
 		$MuiscManager.start_music()
+
+		$GameUI.can_pause_game = true
 
 func _process(delta):
 	if Input.is_action_just_pressed("back"):
@@ -35,6 +41,8 @@ func respawn_at_checkpoint():
 
 	$Moggy.global_position = checkpoint_cross.global_position
 
+func cancel_all_sound_effects():
+	$GlobalSoundEffectGenerator.cancel_current_sound_effect()
 
 func _on_GameStartUI_start_game():
 	$AnimationPlayer.play("start_game")
@@ -46,3 +54,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$VectorAreaView/VectorArea.can_touch_screen = true
 
 		$MuiscManager.start_music()
+		
+		$GameUI.can_pause_game = true
+
+
+func _on_ToiletArea_body_entered(body):
+	if body.name == "Moggy":
+		get_tree().change_scene("res://UI/GameFinale.tscn")

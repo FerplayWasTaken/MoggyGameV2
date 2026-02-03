@@ -6,11 +6,15 @@ var speed = 50
 
 var JUMP_HEIGHT = -300
 const gravity = 10
+var launch_const = 7.5
 
 var is_holding_vector = false
 
 var respawn_position = Vector2()
 var check_can_respawn = true
+
+var respawn_powerup_last_ground_position = Vector2()
+var can_track_ground_respawn_position = true
 
 export var bounce_force = 50
 
@@ -24,6 +28,8 @@ onready var camera_node = get_node("Camera2D")
 
 func _ready():
 	$AnimationPlayer.play("IDLE")
+	
+	define_moggy_skin()
 
 func _process(delta):
 	
@@ -33,6 +39,8 @@ func _process(delta):
 			if $RayCast2D.is_colliding():
 				if !is_holding_moggy:
 					$AnimationPlayer.play("IDLE")
+					
+					can_track_respawn_ground_position()
 				
 				rotate_to_zero($AnimatedSprite)
 			
@@ -45,6 +53,8 @@ func _process(delta):
 
 func launch(force):
 	apply_impulse(Vector2.ZERO, force)
+	
+	can_track_ground_respawn_position = true
 
 
 func jump_funciton(direction):
@@ -61,8 +71,14 @@ func jump_funciton(direction):
 
 func _on_VectorArea_vector_created(vector):
 	if $RayCast2D.is_colliding():
-	
-		launch(vector * 7.5)
+		
+		if $PowerUpManager.get_current_power() != "force_power_up":
+			launch(vector * launch_const)
+		else:
+			launch(vector * launch_const * 1.5)	
+			
+			$PowerUpManager.used_current_power()
+		
 		change_player_sprite(vector)
 		
 		is_holding_vector = false
@@ -76,6 +92,27 @@ func _on_VectorArea_vector_created(vector):
 		
 		is_holding_vector = true
 		is_holding_moggy = false
+	
+	else:
+			
+		if $PowerUpManager.get_current_power() == "double_air_jump_power_up":
+			$PowerUpManager.used_current_power()
+			
+			launch(vector * launch_const)
+			
+			change_player_sprite(vector)
+			
+			is_holding_vector = false
+			camera_node.zoom_in_camera()
+			
+			GlobalSoundEffectGenerator.play_random_sound_effect_audio_random_pitch("moggy_jump", 0)
+			
+			$AnimationPlayer.play("JUMP")
+			
+			yield(get_tree().create_timer(.2),"timeout")
+			
+			is_holding_vector = true
+			is_holding_moggy = false
 
 func change_player_sprite(vector):
 	var vector_direction = vector.x
@@ -102,7 +139,12 @@ func _on_VectorArea_is_holding_vector():
 
 func _on_Area2D_body_entered(body):
 	if body.name == "WaterTile":
-		death_function()
+		if $PowerUpManager.get_current_power() == "respawn_power_up":
+			respawn_last_ground_position()
+			
+			$PowerUpManager.used_current_power()
+		else:
+			death_function()
 
 func death_function():
 	GlobalSoundEffectGenerator.play_sound("lost_aura_sound_effect")
@@ -125,6 +167,30 @@ func death_function():
 	yield(get_tree().create_timer(.5),"timeout")
 	emit_signal("has_died")
 	
+func respawn_last_ground_position():
+	z_index = -1
+	
+	sleeping = true
+	shake_chamera()
+	$Area2D/CollisionShape2D.set_deferred("disabled", true)
+	yield(get_tree().create_timer(.2),"timeout")
+	
+	sleeping = false
+	
+	angular_velocity = 0
+	rotation_degrees = 0
+	set_mode(0) 
+	z_index = 1
+	
+	global_position = respawn_powerup_last_ground_position
+	$Area2D/CollisionShape2D.set_deferred("disabled", false)
+		
+func can_track_respawn_ground_position():
+	if can_track_ground_respawn_position:
+		can_track_ground_respawn_position = false
+		
+		yield(get_tree().create_timer(1),"timeout")
+		respawn_powerup_last_ground_position = global_position
 	
 func lock_to_screen():
 	camera_node.set_smoothing_camera(false)
@@ -134,6 +200,7 @@ func lock_to_screen():
 	
 	get_tree().current_scene.add_child(camera_node)
 	camera_node.global_position = current_camera_position
+
 
 func respawn_last_position():
 	z_index = -1
@@ -159,6 +226,9 @@ func rotate_to_zero(node_target):
 func shake_chamera():
 	$Camera2D.shake(25, 0.2, 100)	
 	
+	
+func define_moggy_skin():
+	$AnimatedSprite.frames = load(GlobalShopInventory.items_dict[GlobalShopInventory.current_animation_skin]["skin_file"])	
 
 func bounce_effect_mush(area, direction):
 	var impact_speed = abs(linear_velocity.y)

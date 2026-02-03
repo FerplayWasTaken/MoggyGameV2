@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GameMechanics/VectorArea.gd" type="Script" id=1]
 [ext_resource path="res://UI/TouchSelection.png" type="Texture" id=2]
+[ext_resource path="res://UI/New Piskel-1.png (3).png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 15 )
@@ -25,3 +26,14 @@ color = Color( 1, 0, 0, 0.0588235 )
 modulate = Color( 1, 1, 1, 0.196078 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
+
+[node name="JumpArrow" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="JumpArrow"]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 7.39098e-06, 0.0425644 )
+rotation = 4.71238
+texture = ExtResource( 3 )
+offset = Vector2( 1.04254, -10 )
+region_enabled = true
+region_rect = Rect2( -2, 2, 22, 20 )

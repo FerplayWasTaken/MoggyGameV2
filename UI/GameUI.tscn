@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Objects/banana.png" type="Texture" id=1]
 [ext_resource path="res://UI/GameUI.gd" type="Script" id=2]
+[ext_resource path="res://UI/TouchSelection.png" type="Texture" id=3]
+[ext_resource path="res://UI/pause_icon.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Fonts/Born2bSportyV2.ttf"
@@ -9,6 +11,100 @@ font_path = "res://Fonts/Born2bSportyV2.ttf"
 [sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = SubResource( 1 )
+
+[sub_resource type="CircleShape2D" id=4]
+
+[sub_resource type="CircleShape2D" id=3]
+
+[sub_resource type="CircleShape2D" id=5]
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://Fonts/Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = SubResource( 6 )
+
+[sub_resource type="RectangleShape2D" id=10]
+
+[sub_resource type="Animation" id=8]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -48, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Menu:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pause:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "pause_game"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -48, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Menu:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pause:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="GameUI" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -28,3 +124,122 @@ custom_fonts/font = SubResource( 2 )
 position = Vector2( 130, 5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
+
+[node name="PowerUps" type="Node2D" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="PowerUps"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 130.0
+margin_bottom = 34.0
+rect_scale = Vector2( 0.15, 0.15 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Power Up: "
+
+[node name="PoweUpSelection" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.588235 )
+
+[node name="Selection" type="Sprite" parent="PoweUpSelection"]
+visible = false
+position = Vector2( 21.0678, 58.9322 )
+rotation = 0.763178
+scale = Vector2( 0.351649, 0.351649 )
+texture = ExtResource( 3 )
+hframes = 2
+vframes = 2
+region_rect = Rect2( -1.05155, -3.19901, 18.9125, 21.0703 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="PoweUpSelection/Selection"]
+position = Vector2( -20.5642, -20.2976 )
+shape = SubResource( 4 )
+
+[node name="PowerUp" type="Sprite" parent="PoweUpSelection"]
+position = Vector2( 21, 68 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="PoweUpSelection/PowerUp"]
+position = Vector2( -9.86731, -9.77938 )
+shape = SubResource( 3 )
+
+[node name="PauseUI" type="Node2D" parent="."]
+
+[node name="Pause" type="Node2D" parent="PauseUI"]
+
+[node name="Sprite" type="Sprite" parent="PauseUI/Pause"]
+position = Vector2( 7, 7 )
+scale = Vector2( -0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="PauseTouch" type="TouchScreenButton" parent="PauseUI/Pause"]
+position = Vector2( 1.68715, 1.97914 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 5 )
+
+[node name="Menu" type="Node2D" parent="PauseUI"]
+position = Vector2( -48, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="PauseUI/Menu"]
+margin_top = -8.0
+margin_right = 40.0
+margin_bottom = 96.0
+color = Color( 0, 0.0721241, 0.355469, 0.686275 )
+
+[node name="Options" type="Node2D" parent="PauseUI/Menu"]
+
+[node name="Retry" type="Label" parent="PauseUI/Menu/Options"]
+margin_left = 6.50508
+margin_top = 38.0847
+margin_right = 76.5051
+margin_bottom = 70.0847
+rect_scale = Vector2( 0.35, 0.35 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "RETRY"
+
+[node name="RetryTouch" type="TouchScreenButton" parent="PauseUI/Menu/Options/Retry"]
+position = Vector2( -3.03571, 0 )
+scale = Vector2( 4, 1.5 )
+shape = SubResource( 10 )
+
+[node name="Back" type="Label" parent="PauseUI/Menu/Options"]
+margin_left = 6.50508
+margin_top = 9.0
+margin_right = 76.5051
+margin_bottom = 41.0
+rect_scale = Vector2( 0.35, 0.35 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "BACK"
+
+[node name="BackTouch" type="TouchScreenButton" parent="PauseUI/Menu/Options/Back"]
+position = Vector2( -9.24018, 0 )
+scale = Vector2( 4, 1.5 )
+shape = SubResource( 10 )
+
+[node name="Menu" type="Label" parent="PauseUI/Menu/Options"]
+margin_left = 6.50508
+margin_top = 68.0
+margin_right = 76.5051
+margin_bottom = 100.0
+rect_scale = Vector2( 0.35, 0.35 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "MENU"
+
+[node name="MenuTouch" type="TouchScreenButton" parent="PauseUI/Menu/Options/Menu"]
+position = Vector2( -9.24018, 0 )
+scale = Vector2( 4, 1.5 )
+shape = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PauseUI"]
+anims/RESET = SubResource( 8 )
+anims/pause_game = SubResource( 9 )
+
+[connection signal="pressed" from="PoweUpSelection/Selection/TouchScreenButton" to="." method="_on_Selection_TouchScreenButton_pressed"]
+[connection signal="pressed" from="PoweUpSelection/PowerUp/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
+[connection signal="pressed" from="PauseUI/Pause/PauseTouch" to="." method="_on_PauseTouch_pressed"]
+[connection signal="pressed" from="PauseUI/Menu/Options/Retry/RetryTouch" to="." method="_on_RetryTouch_pressed"]
+[connection signal="pressed" from="PauseUI/Menu/Options/Back/BackTouch" to="." method="_on_BackTouch_pressed"]
+[connection signal="pressed" from="PauseUI/Menu/Options/Menu/MenuTouch" to="." method="_on_MenuTouch_pressed"]
