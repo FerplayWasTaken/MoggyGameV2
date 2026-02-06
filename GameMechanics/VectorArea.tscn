@@ -30,7 +30,7 @@ texture = ExtResource( 2 )
 [node name="JumpArrow" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="JumpArrow"]
-modulate = Color( 1, 1, 1, 0.392157 )
+modulate = Color( 1, 1, 1, 0.294118 )
 position = Vector2( -8.90086e-06, -0.0424952 )
 rotation = 4.71238
 texture = ExtResource( 3 )

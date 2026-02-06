@@ -88,22 +88,21 @@ rect_scale = Vector2( 0.35, 0.35 )
 custom_fonts/font = SubResource( 2 )
 text = "CONGRATULATIONS!!!
 
-YOU BEAT \"Moggy Monkey\"
+YOU BEAT \"MOGGY MONKEY\"
 
 GAME MADE BY:
 FerplayDev
 
-Art Animations: PliniOP
-Art Sprites: Garando
+ART & ANIMATIONS:
+PliniOP
 
-OH, DO YOU NOW WHAT DELTAS DISCS IS?
+SPRITES:
+Garando
 
-ITS JUST A GAME I'M WORKING ON. CHECK IT OUT ON STEAM
+OH, DO YOU KNOW WHAT DELTAS DISCS IS?
 
-
-
-
-
+IT'S JUST A GAME I'M WORKING ON.
+CHECK IT OUT ON STEAM!
 "
 align = 1
 autowrap = true

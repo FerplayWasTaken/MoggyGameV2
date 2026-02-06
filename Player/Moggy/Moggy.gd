@@ -29,6 +29,7 @@ onready var camera_node = get_node("Camera2D")
 func _ready():
 	$AnimationPlayer.play("IDLE")
 	
+	SaveSystem.load_game()
 	define_moggy_skin()
 
 func _process(delta):
@@ -228,6 +229,7 @@ func shake_chamera():
 	
 	
 func define_moggy_skin():
+#	print(GlobalShopInventory.items_dict)
 	$AnimatedSprite.frames = load(GlobalShopInventory.items_dict[GlobalShopInventory.current_animation_skin]["skin_file"])	
 
 func bounce_effect_mush(area, direction):

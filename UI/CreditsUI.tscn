@@ -1,0 +1,112 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Audio/SoundEffects/GlobalSoundEffectGenerator.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/CreditsUI.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = SubResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="Animation" id=4]
+resource_name = "RESET"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits/Link:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.25, 1.25 ), Vector2( 1, 1 ) ]
+}
+
+[node name="CreditsUI" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="GlobalSoundEffectGenerator" parent="." instance=ExtResource( 1 )]
+
+[node name="Credits" type="Node2D" parent="."]
+
+[node name="Credits" type="RichTextLabel" parent="Credits"]
+margin_left = 6.0
+margin_top = 5.0
+margin_right = 118.0
+margin_bottom = 39.0
+rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 2
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_fonts/normal_font = SubResource( 2 )
+text = "CREDITS"
+
+[node name="Description" type="RichTextLabel" parent="Credits"]
+margin_left = 8.0
+margin_top = 22.0
+margin_right = 611.0
+margin_bottom = 388.0
+rect_scale = Vector2( 0.2, 0.2 )
+mouse_filter = 2
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_fonts/normal_font = SubResource( 2 )
+text = "MADE BY: FerplayDev
+
+SPRITESHEETS & COSMETICS: PliniOP
+
+CHARACTERS, BACKGROUNDS & OBJECT ART: Garando
+
+MUSIC: Balaio Zelda"
+
+[node name="BACK" type="RichTextLabel" parent="Credits"]
+margin_left = 126.0
+margin_top = 73.0
+margin_right = 238.0
+margin_bottom = 107.0
+rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 2
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_fonts/normal_font = SubResource( 2 )
+text = "BACK"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Credits/BACK"]
+position = Vector2( 0, 2 )
+scale = Vector2( 3, 1.25 )
+shape = SubResource( 3 )
+
+[node name="Link" type="Node2D" parent="Credits"]
+position = Vector2( 28.3093, 79.7035 )
+scale = Vector2( 1.04713, 1.04713 )
+
+[node name="Link" type="RichTextLabel" parent="Credits/Link"]
+margin_left = -17.1843
+margin_top = -3.70346
+margin_right = 115.816
+margin_bottom = 30.2965
+rect_scale = Vector2( 0.3, 0.3 )
+mouse_filter = 2
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_fonts/normal_font = SubResource( 2 )
+text = "FOLLOW US"
+
+[node name="LinkButton" type="LinkButton" parent="Credits/Link"]
+margin_left = -17.1843
+margin_top = -5.73934
+margin_right = 22.8157
+margin_bottom = 8.26066
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+
+[connection signal="pressed" from="Credits/BACK/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
+[connection signal="pressed" from="Credits/Link/LinkButton" to="." method="_on_LinkButton_pressed"]

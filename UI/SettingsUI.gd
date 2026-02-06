@@ -9,7 +9,7 @@ func _ready():
 
 
 func _on_TouchScreenButton_pressed():
-	get_parent().back_to_menu()
+	get_parent().back_to_menu("settings")
 
 
 func load_volume_settings():
@@ -22,7 +22,7 @@ func save_volume_settings():
 	GlobalValues.sound_manager_config["SFX"] = $VolumeSliders/Stx.value  
 	GlobalValues.sound_manager_config["Music"] = $VolumeSliders/Music.value 
 
-
+	SaveSystem.save_game()
 
 func _on_Stx_value_changed(value):
 	AudioServer.set_bus_volume_db(sfx_bus, linear2db(value))

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/squaky_duck.wav-28370751dc87f80cf8023e3648a47e3d.sample"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/CartoonSoundEffects/squaky_duck.wav"
+dest_files=[ "res://.import/squaky_duck.wav-28370751dc87f80cf8023e3648a47e3d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -299,6 +299,7 @@ position = Vector2( 106, 0 )
 position = Vector2( 27, 40 )
 frames = ExtResource( 1 )
 animation = "idle"
+frame = 3
 playing = true
 flip_h = true
 

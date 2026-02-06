@@ -26,9 +26,31 @@ func _on_Button2_pressed():
 	
 		$SettingsUI.load_volume_settings()
 
-func back_to_menu():
+func _on_TouchScreenButton3_pressed():
 	if !has_started_game:
-		$AnimationPlayer.play_backwards("SETTINGS")	
+		$AnimationPlayer.play("CREDITS")
+	
+
+func back_to_menu(from_scene):
+	if !has_started_game:
+		match from_scene:
+			"settings":
+				$AnimationPlayer.play_backwards("SETTINGS")	
+			"credits":
+				$AnimationPlayer.play_backwards("CREDITS")
 
 func title_smack_sound():
 	$GlobalSoundEffectGenerator.play_sound("game_over_smack")
+
+
+
+
+func _on_TouchScreenButton4_pressed():
+	if !has_started_game:
+		GlobalValues.last_checkpoint_position_cross = "Origin"
+		
+		SaveSystem.save_game()
+		
+		get_tree().change_scene("res://World/ForestWorld/ForestWorld.tscn")
+
+	

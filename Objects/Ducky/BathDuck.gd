@@ -8,3 +8,5 @@ func _on_Area2D_body_entered(body):
 		$AnimationPlayer.play("bounce")
 		
 		body.bounce_effect_duck($Area2D, direction)
+
+		$GlobalSoundEffectGenerator.play_sound("squeeky_duck")

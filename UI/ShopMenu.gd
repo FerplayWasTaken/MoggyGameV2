@@ -82,15 +82,18 @@ func check_item_buyable(item_id):
 				$Description/ConfirmBox/Options/Buy.text = "Remove"
 				
 				$Inventory/Moggy/AnimatedSprite.frames = load(GlobalShopInventory.items_dict[item_id]["skin_file"])
+
 			else:
 				GlobalShopInventory.current_animation_skin = "default_moggy"
 				$Description/ConfirmBox/Options/Buy.text = "Use"
 			
 				$Inventory/Moggy/AnimatedSprite.frames = load(GlobalShopInventory.items_dict["default_moggy"]["skin_file"])
+				
 			
 			$Description/ConfirmBox/Options/AnimationPlayer.play("CLICKED")
 			$GlobalSoundEffectGenerator.play_sound("select_sound_effect")
 			
+		SaveSystem.save_game()	
 		define_inventory_current_bananas()	
 
 #	if GlobalValues.golden_bananas_amount >= item_cost:

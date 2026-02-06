@@ -13,7 +13,8 @@ var sound_effects_stream_list = {
 	"toilet_flush" : "res://Audio/SoundEffects/CartoonSoundEffects/skibidi toilet flush sound effect #skibiditoilet - king bob (youtube).wav",
 	"buy_item_sound_effect" : "res://Audio/SoundEffects/CartoonSoundEffects/cartoon sound effects pack (HD) - the sounds your mom makes (youtube)-4.wav",
 	"banana_collected_sound_effect" : "res://Audio/SoundEffects/CartoonSoundEffects/banana_sound_effect.wav",
-	"error_sound_effect" : "res://Audio/SoundEffects/CartoonSoundEffects/error_sound_effect.wav"
+	"error_sound_effect" : "res://Audio/SoundEffects/CartoonSoundEffects/error_sound_effect.wav",
+	"squeeky_duck" : "res://Audio/SoundEffects/CartoonSoundEffects/squaky_duck.wav"
 }
 	
 
@@ -30,7 +31,7 @@ func play_sound(audio_name):
 		audio.bus = "SFX"
 		audio.play()
 		
-		print("TOCOU ÁUDIO")		
+#		print("TOCOU ÁUDIO")		
 	else:
 		print("esse efeito sonoro n existe!")	
 

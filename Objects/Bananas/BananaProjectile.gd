@@ -47,7 +47,8 @@ func dissapear_banana():
 	
 	$GlobalSoundEffectGenerator.play_sound("banana_collected_sound_effect")
 
-
+	SaveSystem.save_game()
+	
 func start_banana_timer(time):
 	var timer = get_tree().create_timer(time)
 	yield(timer, "timeout")

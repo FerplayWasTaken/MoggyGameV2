@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://UI/GameStartUI.gd" type="Script" id=1]
 [ext_resource path="res://Audio/SoundEffects/GlobalSoundEffectGenerator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/SettingsUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/CreditsUI.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Fonts/Born2bSportyV2.ttf"
@@ -12,6 +13,58 @@ size = 32
 font_data = SubResource( 1 )
 
 [sub_resource type="RectangleShape2D" id=5]
+
+[sub_resource type="Animation" id=9]
+resource_name = "CREDITS"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameOverUI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 167, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GameOverUI:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CreditsUI:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 167, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CreditsUI:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "RESET"
@@ -122,6 +175,30 @@ tracks/8/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CreditsUI:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 167, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CreditsUI:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -415,19 +492,31 @@ margin_left = 104.0
 margin_top = 35.0
 margin_right = 173.0
 margin_bottom = 69.0
-rect_scale = Vector2( 0.5, 0.5 )
+rect_scale = Vector2( 0.3, 0.3 )
 mouse_filter = 2
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "PLAY"
 
+[node name="NewGame" type="RichTextLabel" parent="GameOverUI/Message"]
+margin_left = 103.0
+margin_top = 48.0
+margin_right = 263.0
+margin_bottom = 82.0
+rect_scale = Vector2( 0.3, 0.3 )
+mouse_filter = 2
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_fonts/normal_font = SubResource( 2 )
+text = "NEW GAME"
+
 [node name="Settings" type="RichTextLabel" parent="GameOverUI/Message"]
 margin_left = 104.0
-margin_top = 54.0
+margin_top = 61.0
 margin_right = 230.0
-margin_bottom = 94.0
-rect_scale = Vector2( 0.5, 0.5 )
+margin_bottom = 101.0
+rect_scale = Vector2( 0.3, 0.3 )
 mouse_filter = 2
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
@@ -436,38 +525,59 @@ text = "SETTINGS"
 
 [node name="Credits" type="RichTextLabel" parent="GameOverUI/Message"]
 margin_left = 104.0
-margin_top = 72.0
+margin_top = 74.0
 margin_right = 230.0
-margin_bottom = 112.0
-rect_scale = Vector2( 0.5, 0.5 )
+margin_bottom = 114.0
+rect_scale = Vector2( 0.3, 0.3 )
 mouse_filter = 2
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "CREDITS"
 
+[node name="Credits2" type="RichTextLabel" parent="GameOverUI/Message"]
+margin_left = 2.0
+margin_top = 83.0
+margin_right = 317.0
+margin_bottom = 123.0
+rect_scale = Vector2( 0.2, 0.2 )
+mouse_filter = 2
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_fonts/normal_font = SubResource( 2 )
+text = "Made by FerplayDev"
+
 [node name="Buttons" type="Node2D" parent="GameOverUI"]
 z_index = -1
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="GameOverUI/Buttons"]
 position = Vector2( 103, 35 )
-scale = Vector2( 1.75, 0.75 )
+scale = Vector2( 1.122, 0.47 )
 shape = SubResource( 5 )
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="GameOverUI/Buttons"]
-position = Vector2( 103, 54 )
-scale = Vector2( 2.8, 0.75 )
+position = Vector2( 103, 61 )
+scale = Vector2( 1.926, 0.449 )
 shape = SubResource( 5 )
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="GameOverUI/Buttons"]
 position = Vector2( 103, 73 )
-scale = Vector2( 2.5, 0.75 )
+scale = Vector2( 1.597, 0.585 )
+shape = SubResource( 5 )
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="GameOverUI/Buttons"]
+position = Vector2( 103, 48 )
+scale = Vector2( 1.862, 0.438 )
 shape = SubResource( 5 )
 
 [node name="SettingsUI" parent="." instance=ExtResource( 3 )]
 position = Vector2( 167, 0 )
 
+[node name="CreditsUI" parent="." instance=ExtResource( 4 )]
+position = Vector2( 167, 0 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/CREDITS = SubResource( 9 )
 anims/RESET = SubResource( 3 )
 anims/SETTINGS = SubResource( 7 )
 anims/START = SubResource( 4 )
@@ -478,3 +588,5 @@ anims/start_game = SubResource( 6 )
 
 [connection signal="pressed" from="GameOverUI/Buttons/TouchScreenButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="GameOverUI/Buttons/TouchScreenButton2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="GameOverUI/Buttons/TouchScreenButton3" to="." method="_on_TouchScreenButton3_pressed"]
+[connection signal="pressed" from="GameOverUI/Buttons/TouchScreenButton4" to="." method="_on_TouchScreenButton4_pressed"]
